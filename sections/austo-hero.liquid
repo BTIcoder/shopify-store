@@ -1,0 +1,511 @@
+{% comment %}
+  Austo Design - Clean Hero Banner
+  Minimalistic architectural hardware & plywood hero section
+{% endcomment %}
+
+<section class="austo-hero-carousel">
+  <div class="carousel-container">
+    <div class="carousel-wrapper">
+      <!-- Slide 1 - Architectural Handles -->
+      <div class="carousel-slide active" data-slide="0">
+        <div class="slide-background">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Modern door handles" class="slide-image">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">AUSTO</div>
+            <h1 class="slide-title">ARCHITECTURAL HANDLES</h1>
+            <p class="slide-subtitle">Premium Hardware Solutions</p>
+            <p class="slide-description">Knobs, cabinet handles, concealed handles, and main door handles crafted from SS 304, Zinc Alloy, and Aluminum.</p>
+            <div class="slide-buttons">
+              <a href="{{ section.settings.handles_link | default: '/collections/handles' }}" class="btn btn-primary">
+                EXPLORE HANDLES
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 - Premium Plywood -->
+      <div class="carousel-slide" data-slide="1">
+        <div class="slide-background">
+          <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Premium plywood sheets" class="slide-image">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">HARDREX</div>
+            <h1 class="slide-title">PREMIUM PLYWOOD</h1>
+            <p class="slide-subtitle">Red & Red Core Construction</p>
+            <p class="slide-description">Complete in-house production with superior Red & Red core. Available in 6mm, 12mm, 16mm, 18mm thickness.</p>
+            <div class="slide-buttons">
+              <a href="{{ section.settings.plywood_link | default: '/pages/plywood-quote' }}" class="btn btn-primary">
+                REQUEST QUOTE
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 - Brass Statues -->
+      <div class="carousel-slide" data-slide="2">
+        <div class="slide-background">
+          <img src="{{ 'Brass-Statue.png' | asset_url }}" alt="Ornate brass statue with intricate golden details" class="slide-image">
+          <div class="slide-overlay"></div>
+        </div>
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="slide-badge">NEW LAUNCH</div>
+            <h1 class="slide-title">BRASS STATUES</h1>
+            <p class="slide-subtitle">Handcrafted Luxury Decor</p>
+            <p class="slide-description">Exquisite handcrafted brass statues with intricate carvings and gemstone inlays for luxury interiors.</p>
+            <div class="slide-buttons">
+              <a href="{{ section.settings.statues_link | default: '/collections/brass-statues' }}" class="btn btn-primary">
+                SHOP STATUES
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Navigation -->
+    <div class="carousel-navigation">
+      <button class="carousel-prev" aria-label="Previous slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="carousel-next" aria-label="Next slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+      <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+      <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Clean Minimalistic Hero Banner */
+.austo-hero-carousel {
+  position: relative;
+  height: 50vh;
+  min-height: 400px;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
+
+.slide-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.slide-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.slide-text {
+  color: #fff;
+  max-width: 600px;
+}
+
+.slide-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slide-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.slide-subtitle {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+.slide-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.slide-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: 2px solid;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: #fff;
+  color: #333;
+  border-color: #fff;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Navigation */
+.carousel-navigation {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.carousel-prev,
+.carousel-next {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .austo-hero-carousel {
+    height: 45vh;
+    min-height: 350px;
+  }
+  
+  .slide-content {
+    padding: 0 20px;
+  }
+  
+  .slide-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  .slide-subtitle {
+    font-size: 1rem;
+  }
+  
+  .slide-description {
+    font-size: 0.9rem;
+  }
+  
+  .btn {
+    padding: 10px 24px;
+    font-size: 0.8rem;
+  }
+  
+  .carousel-navigation {
+    left: 15px;
+    right: 15px;
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .austo-hero-carousel {
+    height: 40vh;
+    min-height: 300px;
+  }
+  
+  .slide-content {
+    padding: 0 15px;
+  }
+  
+  .slide-title {
+    font-size: clamp(1.3rem, 6vw, 2rem);
+  }
+  
+  .btn {
+    padding: 8px 20px;
+    font-size: 0.75rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = {
+    currentSlide: 0,
+    slides: document.querySelectorAll('.carousel-slide'),
+    indicators: document.querySelectorAll('.indicator'),
+    prevBtn: document.querySelector('.carousel-prev'),
+    nextBtn: document.querySelector('.carousel-next'),
+    autoplayInterval: null,
+    autoplayDuration: {{ section.settings.autoplay_duration | default: 5 | times: 1000 }},
+    
+    init() {
+      if (this.slides.length <= 1) return;
+      this.bindEvents();
+      this.startAutoplay();
+    },
+    
+    bindEvents() {
+      this.prevBtn.addEventListener('click', () => this.prevSlide());
+      this.nextBtn.addEventListener('click', () => this.nextSlide());
+      
+      this.indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => this.goToSlide(index));
+      });
+      
+      // Pause autoplay on hover
+      const carouselContainer = document.querySelector('.austo-hero-carousel');
+      carouselContainer.addEventListener('mouseenter', () => this.stopAutoplay());
+      carouselContainer.addEventListener('mouseleave', () => this.startAutoplay());
+    },
+    
+    goToSlide(index) {
+      this.slides[this.currentSlide].classList.remove('active');
+      this.indicators[this.currentSlide].classList.remove('active');
+      
+      this.currentSlide = index;
+      
+      this.slides[this.currentSlide].classList.add('active');
+      this.indicators[this.currentSlide].classList.add('active');
+    },
+    
+    nextSlide() {
+      const nextIndex = (this.currentSlide + 1) % this.slides.length;
+      this.goToSlide(nextIndex);
+    },
+    
+    prevSlide() {
+      const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+      this.goToSlide(prevIndex);
+    },
+    
+    startAutoplay() {
+      this.stopAutoplay();
+      this.autoplayInterval = setInterval(() => {
+        this.nextSlide();
+      }, this.autoplayDuration);
+    },
+    
+    stopAutoplay() {
+      if (this.autoplayInterval) {
+        clearInterval(this.autoplayInterval);
+        this.autoplayInterval = null;
+      }
+    }
+  };
+  
+  carousel.init();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Austo Carousel Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Carousel Settings"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_duration",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay duration",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Slide Links"
+    },
+    {
+      "type": "url",
+      "id": "handles_link",
+      "label": "Handles Collection Link"
+    },
+    {
+      "type": "url",
+      "id": "plywood_link", 
+      "label": "Plywood Quote Link"
+    },
+    {
+      "type": "url",
+      "id": "statues_link",
+      "label": "Brass Statues Link"
+    },
+    {
+      "type": "url",
+      "id": "custom_link",
+      "label": "Custom Solutions Link"
+    },
+    {
+      "type": "url",
+      "id": "about_link",
+      "label": "About Us Link"
+    },
+    {
+      "type": "url",
+      "id": "contact_link",
+      "label": "Contact Us Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Austo Carousel Hero"
+    }
+  ]
+}
+{% endschema %}

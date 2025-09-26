@@ -1,0 +1,17 @@
+{
+  "name": "Professional Header Group",
+  "type": "header",
+  "sections": {
+    "professional_header": {
+      "type": "professional-header",
+      "settings": {
+        "menu": "main-menu",
+        "sticky_header": true,
+        "show_search": true
+      }
+    }
+  },
+  "order": [
+    "professional_header"
+  ]
+}

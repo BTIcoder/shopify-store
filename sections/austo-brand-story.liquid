@@ -1,0 +1,369 @@
+{% comment %}
+  Austo Design - Brand Story
+  Premium brand narrative with craftsmanship focus
+{% endcomment %}
+
+<section class="austo-brand-story">
+  <div class="story-container">
+    <div class="story-content">
+      <div class="story-text">
+        <h2 class="story-title">{{ section.settings.heading | default: 'CRAFTSMANSHIP MEETS INNOVATION' }}</h2>
+        <div class="story-description">
+          {% if section.settings.description_line_1 != blank %}
+            <p>{{ section.settings.description_line_1 }}</p>
+          {% else %}
+            <p>At Austo Design, we believe that every detail matters. Our commitment to Italian-inspired luxury and architectural excellence drives us to create hardware that doesn't just function - it transforms spaces.</p>
+          {% endif %}
+          {% if section.settings.description_line_2 != blank %}
+            <p>{{ section.settings.description_line_2 }}</p>
+          {% else %}
+            <p>From our premium Austo handles crafted with precision engineering to our revolutionary Hardrex plywood with Red & Red core construction, every product reflects our dedication to quality and innovation.</p>
+          {% endif %}
+        </div>
+        
+        <div class="story-stats">
+          {% for block in section.blocks %}
+            <div class="stat" {{ block.shopify_attributes }}>
+              <span class="stat-number">{{ block.settings.number | default: '25+' }}</span>
+              <span class="stat-label">{{ block.settings.label | default: 'Years of Excellence' }}</span>
+            </div>
+          {% endfor %}
+        </div>
+        
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link | default: '/pages/about' }}" class="btn-story">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+      
+      {% if section.settings.image != blank %}
+        <div class="story-image">
+          <img src="{{ section.settings.image | image_url: width: 700 }}" 
+               alt="{{ section.settings.image.alt | default: 'Austo Design Craftsmanship' }}" 
+               width="500" height="400" loading="lazy">
+          <div class="image-accent"></div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.austo-brand-story {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #2c1810 0%, #1a0f0a 100%);
+  color: #f5f5f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.austo-brand-story::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+  animation: rotate 60s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.story-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.story-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.story-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, #f5f5f0, #d4af37);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.story-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 50px;
+  color: rgba(245, 245, 240, 0.9);
+}
+
+.story-description p {
+  margin-bottom: 20px;
+}
+
+.story-description p:last-child {
+  margin-bottom: 0;
+}
+
+.story-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  text-align: center;
+  padding: 25px 15px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.stat:hover::before {
+  left: 100%;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  background: rgba(212, 175, 55, 0.15);
+}
+
+.stat-number {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #d4af37;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f5f5f0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-story {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 18px 40px;
+  background: transparent;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-story::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #d4af37;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-story:hover::before {
+  left: 0;
+}
+
+.btn-story:hover {
+  color: #2c1810;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+}
+
+.story-image {
+  position: relative;
+}
+
+.story-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.image-accent {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #d4af37;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+@media (max-width: 968px) {
+  .story-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+  
+  .story-title {
+    font-size: 2.2rem;
+  }
+  
+  .story-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .austo-brand-story {
+    padding: 80px 0;
+  }
+  
+  .story-title {
+    font-size: 1.8rem;
+  }
+  
+  .story-stats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .stat {
+    padding: 20px 15px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Austo Brand Story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "CRAFTSMANSHIP MEETS INNOVATION"
+    },
+    {
+      "type": "text",
+      "id": "description_line_1",
+      "label": "First paragraph",
+      "default": "At Austo Design, we believe that every detail matters. Our commitment to Italian-inspired luxury and architectural excellence drives us to create hardware that doesn't just function - it transforms spaces."
+    },
+    {
+      "type": "text",  
+      "id": "description_line_2",
+      "label": "Second paragraph", 
+      "default": "From our premium Austo handles crafted with precision engineering to our revolutionary Hardrex plywood with Red & Red core construction, every product reflects our dedication to quality and innovation."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Statistic",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "25+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Years of Excellence"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Austo Brand Story",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "number": "25+",
+            "label": "Years of Excellence"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "1000+",
+            "label": "Premium Products"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "number": "100%",
+            "label": "In-house Production"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

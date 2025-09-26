@@ -1,0 +1,1223 @@
+{% comment %}
+  Categorized Products - Three categories with horizontal carousels
+  Premium architectural hardware showcase
+{% endcomment %}
+
+<section class="categorized-products-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{{ section.settings.heading | default: 'OUR PREMIUM COLLECTIONS' }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="section-description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+    
+    <div class="categories-grid">
+      
+      <!-- Handles Category -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3 class="category-title">{{ section.settings.handles_title | default: 'ARCHITECTURAL HANDLES' }}</h3>
+          <p class="category-description">{{ section.settings.handles_description | default: 'Premium door and window handles crafted with precision' }}</p>
+          <a href="{{ section.settings.handles_link | default: '/collections/handles' }}" class="view-all-btn">
+            View All Handles
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="category-carousel" data-category="handles">
+          <button class="nav-arrow nav-prev" aria-label="Previous handles">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="products-viewport">
+            <div class="products-slider">
+              {% assign handles_collection = collections['handles'] %}
+              {% if handles_collection and handles_collection.products.size > 0 %}
+                {% for product in handles_collection.products limit: 8 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="{{ product.url }}" class="product-link">
+                          {% if product.featured_image %}
+                            {{ product.featured_image | image_url: width: 280 | image_tag: 
+                              loading: 'lazy',
+                              alt: product.featured_image.alt | default: product.title,
+                              class: 'product-image'
+                            }}
+                          {% else %}
+                            <div class="product-image-placeholder">
+                              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                              </svg>
+                            </div>
+                          {% endif %}
+                        </a>
+                        
+                        {% if product.compare_at_price > product.price %}
+                          <div class="product-badge sale">Sale</div>
+                        {% elsif product.available == false %}
+                          <div class="product-badge sold-out">Sold Out</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="{{ product.url }}">{{ product.title | truncate: 40 }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if product.compare_at_price > product.price %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                            <span class="price-original">{{ product.compare_at_price | money }}</span>
+                          {% else %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <!-- Show demo products if collection doesn't exist -->
+                {% assign handle_images = 'https://media.istockphoto.com/id/964398674/vector/set-of-classic-gold-door-handles.jpg?s=1024x1024&w=is&k=20&c=psd18YZRkoXV84FuwVNsHDmUbkB8Khj982X_CrT-nBU=,https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1571068316344-75bc76f77890?ixlib=rb-4.0.3&w=300&h=300&fit=crop' | split: ',' %}
+                {% assign handle_names = 'Premium Brass Handle,Modern Door Handle,Luxury Cabinet Handle,Designer Pull Handle,Executive Door Handle,Architectural Handle' | split: ',' %}
+                {% assign handle_prices = '24817,16517,33117,20667,41417,27307' | split: ',' %}
+                
+                {% for i in (1..6) %}
+                  {% assign index = forloop.index0 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="#" class="product-link">
+                          <img src="{{ handle_images[index] }}" 
+                               alt="{{ handle_names[index] }}" 
+                               class="product-image demo-image"
+                               loading="lazy"
+                               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                          <div class="product-image-placeholder" style="display: none;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                              <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                              <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                          </div>
+                        </a>
+                        
+                        {% if forloop.index == 2 %}
+                          <div class="product-badge sale">Sale</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="#">{{ handle_names[index] }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if forloop.index == 2 %}
+                            <span class="price-current">₹{{ handle_prices[index] }}</span>
+                            <span class="price-original">₹28,967</span>
+                          {% else %}
+                            <span class="price-current">₹{{ handle_prices[index] }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          
+          <button class="nav-arrow nav-next" aria-label="Next handles">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Plywood Category -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3 class="category-title">{{ section.settings.plywood_title | default: 'PREMIUM PLYWOOD' }}</h3>
+          <p class="category-description">{{ section.settings.plywood_description | default: 'High-quality plywood for luxury interiors and furniture' }}</p>
+          <a href="{{ section.settings.plywood_link | default: '/collections/plywood' }}" class="view-all-btn">
+            View All Plywood
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="category-carousel" data-category="plywood">
+          <button class="nav-arrow nav-prev" aria-label="Previous plywood">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="products-viewport">
+            <div class="products-slider">
+              {% assign plywood_collection = collections['plywood'] %}
+              {% if plywood_collection and plywood_collection.products.size > 0 %}
+                {% for product in plywood_collection.products limit: 6 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="{{ product.url }}" class="product-link">
+                          {% if product.featured_image %}
+                            {{ product.featured_image | image_url: width: 280 | image_tag: 
+                              loading: 'lazy',
+                              alt: product.featured_image.alt | default: product.title,
+                              class: 'product-image'
+                            }}
+                          {% else %}
+                            <div class="product-image-placeholder">
+                              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                              </svg>
+                            </div>
+                          {% endif %}
+                        </a>
+                        
+                        {% if product.compare_at_price > product.price %}
+                          <div class="product-badge sale">Sale</div>
+                        {% elsif product.available == false %}
+                          <div class="product-badge sold-out">Sold Out</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="{{ product.url }}">{{ product.title | truncate: 40 }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if product.compare_at_price > product.price %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                            <span class="price-original">{{ product.compare_at_price | money }}</span>
+                          {% else %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <!-- Show demo products if collection doesn't exist -->
+                {% assign plywood_images = 'https://images.unsplash.com/photo-1611491064644-a9ff17219a53?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1541123437800-1bb1317badc2?ixlib=rb-4.0.3&w=300&h=300&fit=crop' | split: ',' %}
+                {% assign plywood_names = 'Premium Oak Plywood,Marine Grade Plywood,Birch Veneer Plywood,Luxury Teak Plywood,Commercial Grade Plywood' | split: ',' %}
+                {% assign plywood_prices = '16517,20667,24817,37267,14867' | split: ',' %}
+                
+                {% for i in (1..5) %}
+                  {% assign index = forloop.index0 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="#" class="product-link">
+                          <img src="{{ plywood_images[index] }}" 
+                               alt="{{ plywood_names[index] }}" 
+                               class="product-image demo-image"
+                               loading="lazy"
+                               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                          <div class="product-image-placeholder" style="display: none;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                              <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                              <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                          </div>
+                        </a>
+                        
+                        {% if forloop.index == 4 %}
+                          <div class="product-badge sale">Sale</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="#">{{ plywood_names[index] }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if forloop.index == 4 %}
+                            <span class="price-current">₹{{ plywood_prices[index] }}</span>
+                            <span class="price-original">₹49,717</span>
+                          {% else %}
+                            <span class="price-current">₹{{ plywood_prices[index] }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          
+          <button class="nav-arrow nav-next" aria-label="Next plywood">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Brass Statues Category -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3 class="category-title">{{ section.settings.statues_title | default: 'BRASS STATUES' }}</h3>
+          <p class="category-description">{{ section.settings.statues_description | default: 'Exquisite brass statues for luxury home decoration' }}</p>
+          <a href="{{ section.settings.statues_link | default: '/collections/brass-statues' }}" class="view-all-btn">
+            View All Statues
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="category-carousel" data-category="statues">
+          <button class="nav-arrow nav-prev" aria-label="Previous statues">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="products-viewport">
+            <div class="products-slider">
+              {% assign statues_collection = collections['brass-statues'] %}
+              {% if statues_collection and statues_collection.products.size > 0 %}
+                {% for product in statues_collection.products limit: 8 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="{{ product.url }}" class="product-link">
+                          {% if product.featured_image %}
+                            {{ product.featured_image | image_url: width: 280 | image_tag: 
+                              loading: 'lazy',
+                              alt: product.featured_image.alt | default: product.title,
+                              class: 'product-image'
+                            }}
+                          {% else %}
+                            <div class="product-image-placeholder">
+                              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                              </svg>
+                            </div>
+                          {% endif %}
+                        </a>
+                        
+                        {% if product.compare_at_price > product.price %}
+                          <div class="product-badge sale">Sale</div>
+                        {% elsif product.available == false %}
+                          <div class="product-badge sold-out">Sold Out</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="{{ product.url }}">{{ product.title | truncate: 40 }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if product.compare_at_price > product.price %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                            <span class="price-original">{{ product.compare_at_price | money }}</span>
+                          {% else %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <!-- Show demo products if collection doesn't exist -->
+                {% assign statue_images = 'https://media.istockphoto.com/id/2204177482/photo/golden-buddha-statues-in-a-row-inside-a-thai-temple.jpg?s=1024x1024&w=is&k=20&c=dMdlOD7TMaQ-mBB8PSniN99vJ9-yeb1MZYCG503_vrM=,https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://media.istockphoto.com/id/482927596/photo/elephant.jpg?s=1024x1024&w=is&k=20&c=147pu0ZDotKOs_YPxa5RRNlxc9rBv8FCFRRbg_GlRU4=,https://images.unsplash.com/photo-1602052793312-b99c2a9ee797?ixlib=rb-4.0.3&w=300&h=300&fit=crop' | split: ',' %}
+                {% assign statue_names = 'Golden Buddha Statue,Brass Ganesha Figurine,Vintage Lion Sculpture,Art Deco Dancer,Ornate Elephant Statue,Classical Greek Figure' | split: ',' %}
+                {% assign statue_prices = '49717,33117,66317,45567,58017,74617' | split: ',' %}
+                
+                {% for i in (1..6) %}
+                  {% assign index = forloop.index0 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="#" class="product-link">
+                          <img src="{{ statue_images[index] }}" 
+                               alt="{{ statue_names[index] }}" 
+                               class="product-image demo-image"
+                               loading="lazy"
+                               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                          <div class="product-image-placeholder" style="display: none;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                              <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                              <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                          </div>
+                        </a>
+                        
+                        {% if forloop.index == 3 %}
+                          <div class="product-badge sale">Sale</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="#">{{ statue_names[index] }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if forloop.index == 3 %}
+                            <span class="price-current">₹{{ statue_prices[index] }}</span>
+                            <span class="price-original">₹82,917</span>
+                          {% else %}
+                            <span class="price-current">₹{{ statue_prices[index] }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          
+          <button class="nav-arrow nav-next" aria-label="Next statues">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Tiles Category -->
+      <div class="category-section">
+        <div class="category-header">
+          <h3 class="category-title">{{ section.settings.tiles_title | default: 'PREMIUM TILES' }}</h3>
+          <p class="category-description">{{ section.settings.tiles_description | default: 'Luxurious tiles for floors, walls, and sophisticated interiors' }}</p>
+          <a href="{{ section.settings.tiles_link | default: '/collections/tiles' }}" class="view-all-btn">
+            View All Tiles
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="category-carousel" data-category="tiles">
+          <button class="nav-arrow nav-prev" aria-label="Previous tiles">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="products-viewport">
+            <div class="products-slider">
+              {% assign tiles_collection = collections['tiles'] %}
+              {% if tiles_collection and tiles_collection.products.size > 0 %}
+                {% for product in tiles_collection.products limit: 8 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="{{ product.url }}" class="product-link">
+                          {% if product.featured_image %}
+                            {{ product.featured_image | image_url: width: 280 | image_tag: 
+                              loading: 'lazy',
+                              alt: product.featured_image.alt | default: product.title,
+                              class: 'product-image'
+                            }}
+                          {% else %}
+                            <div class="product-image-placeholder">
+                              <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                                <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                              </svg>
+                            </div>
+                          {% endif %}
+                        </a>
+                        
+                        {% if product.compare_at_price > product.price %}
+                          <div class="product-badge sale">Sale</div>
+                        {% elsif product.available == false %}
+                          <div class="product-badge sold-out">Sold Out</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="{{ product.url }}">{{ product.title | truncate: 40 }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if product.compare_at_price > product.price %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                            <span class="price-original">{{ product.compare_at_price | money }}</span>
+                          {% else %}
+                            <span class="price-current">{{ product.price | money }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <!-- Show demo products if collection doesn't exist -->
+                {% assign tile_images = 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&w=300&h=300&fit=crop,https://images.unsplash.com/photo-1458682625221-3a45f8a844c7?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://plus.unsplash.com/premium_photo-1676638154798-904c8f6282d6?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D,https://images.unsplash.com/photo-1581539250439-c96689b516dd?ixlib=rb-4.0.3&w=300&h=300&fit=crop' | split: ',' %}
+                {% assign tile_names = 'Marble Floor Tiles,Ceramic Wall Tiles,Porcelain Kitchen Tiles,Natural Stone Tiles,Designer Bathroom Tiles,Luxury Mosaic Tiles' | split: ',' %}
+                {% assign tile_prices = '7387,4067,10707,16517,13197,20667' | split: ',' %}
+                
+                {% for i in (1..6) %}
+                  {% assign index = forloop.index0 %}
+                  <div class="product-slide">
+                    <div class="product-card">
+                      <div class="product-image-container">
+                        <a href="#" class="product-link">
+                          <img src="{{ tile_images[index] }}" 
+                               alt="{{ tile_names[index] }}" 
+                               class="product-image demo-image"
+                               loading="lazy"
+                               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                          <div class="product-image-placeholder" style="display: none;">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                              <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+                              <polyline points="21,15 16,10 5,21" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                          </div>
+                        </a>
+                        
+                        {% if forloop.index == 5 %}
+                          <div class="product-badge sale">Sale</div>
+                        {% endif %}
+                      </div>
+                      
+                      <div class="product-details">
+                        <h4 class="product-title">
+                          <a href="#">{{ tile_names[index] }}</a>
+                        </h4>
+                        
+                        <div class="product-price">
+                          {% if forloop.index == 5 %}
+                            <span class="price-current">₹{{ tile_prices[index] }}</span>
+                            <span class="price-original">₹16,517</span>
+                          {% else %}
+                            <span class="price-current">₹{{ tile_prices[index] }}</span>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+          
+          <button class="nav-arrow nav-next" aria-label="Next tiles">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+.categorized-products-section {
+  padding: 60px 0 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c1810;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #2c1810 0%, #8b5a3c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.categories-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.category-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.category-section:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.category-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c1810;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.category-description {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  color: #666;
+  margin: 5px 0 0 0;
+  flex: 1;
+  min-width: 250px;
+}
+
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #2c1810 0%, #8b5a3c 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.view-all-btn:hover {
+  background: linear-gradient(135deg, #8b5a3c 0%, #2c1810 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(44, 24, 16, 0.3);
+}
+
+.category-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-arrow:hover:not(:disabled) {
+  border-color: #2c1810;
+  color: #2c1810;
+  background: #f8f8f8;
+  transform: scale(1.05);
+}
+
+.nav-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+  border-color: #e0e0e0;
+  color: #ccc;
+}
+
+.products-viewport {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.products-slider {
+  display: flex;
+  gap: 18px;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.product-slide {
+  flex: 0 0 auto;
+  width: 210px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #e0e0e0;
+}
+
+.product-image-container {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.demo-image {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: brightness(1.05) contrast(1.1);
+}
+
+.product-card:hover .demo-image {
+  filter: brightness(1.1) contrast(1.15);
+}
+
+.product-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  background: #f5f5f5;
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+
+.product-badge.sale {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: #fff;
+}
+
+.product-badge.sold-out {
+  background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+  color: #fff;
+}
+
+.product-details {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  margin: 0 0 10px 0;
+  flex: 1;
+}
+
+.product-title a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2c1810;
+  text-decoration: none;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-title a:hover {
+  color: #8b5a3c;
+}
+
+.product-price {
+  margin-top: auto;
+}
+
+.price-current {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2c1810;
+}
+
+.price-original {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  color: #999;
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .category-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .category-description {
+    min-width: auto;
+  }
+  
+  .view-all-btn {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .categorized-products-section {
+    padding: 40px 0 60px 0;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .categories-grid {
+    gap: 35px;
+  }
+  
+  .category-section {
+    padding: 20px;
+  }
+  
+  .category-title {
+    font-size: 1.3rem;
+  }
+  
+  .category-carousel {
+    gap: 12px;
+  }
+  
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .products-slider {
+    gap: 15px;
+  }
+  
+  .product-slide {
+    width: 170px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .category-section {
+    padding: 16px;
+  }
+  
+  .category-title {
+    font-size: 1.1rem;
+  }
+  
+  .category-carousel {
+    gap: 8px;
+  }
+  
+  .nav-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .products-slider {
+    gap: 12px;
+  }
+  
+  .product-slide {
+    width: 150px;
+  }
+  
+  .product-details {
+    padding: 12px;
+  }
+  
+  .view-all-btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const carousels = document.querySelectorAll('.category-carousel');
+  
+  carousels.forEach((carousel) => {
+    const slider = carousel.querySelector('.products-slider');
+    const prevBtn = carousel.querySelector('.nav-prev');
+    const nextBtn = carousel.querySelector('.nav-next');
+    const slides = slider.querySelectorAll('.product-slide');
+    
+    if (slides.length === 0) return;
+    
+    let currentIndex = 0;
+    const slideWidth = slides[0].offsetWidth + 18; // slide width + gap
+    const viewport = carousel.querySelector('.products-viewport');
+    
+    function getVisibleSlides() {
+      return Math.floor(viewport.offsetWidth / slideWidth);
+    }
+    
+    function getMaxIndex() {
+      return Math.max(0, slides.length - getVisibleSlides());
+    }
+    
+    function updateCarousel() {
+      const translateX = -currentIndex * slideWidth;
+      slider.style.transform = `translateX(${translateX}px)`;
+      
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex >= getMaxIndex();
+    }
+    
+    function goNext() {
+      const maxIndex = getMaxIndex();
+      if (currentIndex < maxIndex) {
+        const visibleSlides = getVisibleSlides();
+        currentIndex = Math.min(currentIndex + Math.max(1, Math.floor(visibleSlides / 2)), maxIndex);
+        updateCarousel();
+      }
+    }
+    
+    function goPrev() {
+      if (currentIndex > 0) {
+        const visibleSlides = getVisibleSlides();
+        currentIndex = Math.max(currentIndex - Math.max(1, Math.floor(visibleSlides / 2)), 0);
+        updateCarousel();
+      }
+    }
+    
+    nextBtn.addEventListener('click', goNext);
+    prevBtn.addEventListener('click', goPrev);
+    
+    // Touch/swipe support
+    let startX = 0;
+    let isDragging = false;
+    let startTransform = 0;
+    
+    slider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      startTransform = currentIndex * slideWidth;
+    });
+    
+    slider.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      
+      const currentX = e.touches[0].clientX;
+      const diff = startX - currentX;
+      const newTransform = startTransform + diff;
+      
+      slider.style.transform = `translateX(-${newTransform}px)`;
+      e.preventDefault();
+    });
+    
+    slider.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      } else {
+        updateCarousel();
+      }
+      
+      isDragging = false;
+    });
+    
+    // Initialize
+    updateCarousel();
+    
+    // Update on window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const newMaxIndex = getMaxIndex();
+        
+        if (currentIndex > newMaxIndex) {
+          currentIndex = newMaxIndex;
+        }
+        
+        updateCarousel();
+      }, 250);
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Categorized Products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "OUR PREMIUM COLLECTIONS"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Section Description"
+    },
+    {
+      "type": "header",
+      "content": "Handles Category"
+    },
+    {
+      "type": "text",
+      "id": "handles_title",
+      "label": "Handles Title",
+      "default": "ARCHITECTURAL HANDLES"
+    },
+    {
+      "type": "textarea",
+      "id": "handles_description",
+      "label": "Handles Description",
+      "default": "Premium door and window handles crafted with precision"
+    },
+    {
+      "type": "collection",
+      "id": "handles_collection",
+      "label": "Handles Collection"
+    },
+    {
+      "type": "url",
+      "id": "handles_link",
+      "label": "Handles View All Link"
+    },
+    {
+      "type": "range",
+      "id": "handles_limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Number of handle products",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Plywood Category"
+    },
+    {
+      "type": "text",
+      "id": "plywood_title",
+      "label": "Plywood Title",
+      "default": "PREMIUM PLYWOOD"
+    },
+    {
+      "type": "textarea",
+      "id": "plywood_description",
+      "label": "Plywood Description",
+      "default": "High-quality plywood for luxury interiors and furniture"
+    },
+    {
+      "type": "collection",
+      "id": "plywood_collection",
+      "label": "Plywood Collection"
+    },
+    {
+      "type": "url",
+      "id": "plywood_link",
+      "label": "Plywood View All Link"
+    },
+    {
+      "type": "range",
+      "id": "plywood_limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Number of plywood products",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Brass Statues Category"
+    },
+    {
+      "type": "text",
+      "id": "statues_title",
+      "label": "Statues Title",
+      "default": "BRASS STATUES"
+    },
+    {
+      "type": "textarea",
+      "id": "statues_description",
+      "label": "Statues Description",
+      "default": "Exquisite brass statues for luxury home decoration"
+    },
+    {
+      "type": "collection",
+      "id": "statues_collection",
+      "label": "Statues Collection"
+    },
+    {
+      "type": "url",
+      "id": "statues_link",
+      "label": "Statues View All Link"
+    },
+    {
+      "type": "range",
+      "id": "statues_limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Number of statue products",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Tiles Category"
+    },
+    {
+      "type": "text",
+      "id": "tiles_title",
+      "label": "Tiles Title",
+      "default": "PREMIUM TILES"
+    },
+    {
+      "type": "textarea",
+      "id": "tiles_description",
+      "label": "Tiles Description",
+      "default": "Luxurious tiles for floors, walls, and sophisticated interiors"
+    },
+    {
+      "type": "collection",
+      "id": "tiles_collection",
+      "label": "Tiles Collection"
+    },
+    {
+      "type": "url",
+      "id": "tiles_link",
+      "label": "Tiles View All Link"
+    },
+    {
+      "type": "range",
+      "id": "tiles_limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "label": "Number of tile products",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "Categorized Products",
+      "settings": {
+        "heading": "OUR PREMIUM COLLECTIONS",
+        "description": "Discover our range of luxury architectural hardware and home decor"
+      }
+    }
+  ]
+}
+{% endschema %}

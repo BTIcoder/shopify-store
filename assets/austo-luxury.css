@@ -1,0 +1,1573 @@
+/* Austo Design - Premium Luxury Theme Styles */
+
+/* Import Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Lato:wght@300;400;700;900&display=swap');
+
+/* CSS Variables for Brand Colors */
+:root {
+  --color-primary: #2c1810;
+  --color-secondary: #d4af37;
+  --color-accent: #8b2635;
+  --color-plywood: #2c5aa0;
+  --color-text-light: #f5f5f0;
+  --color-text-dark: #2c1810;
+  --color-background-light: #f8f6f0;
+  --color-background-dark: #1a0f0a;
+  --color-border: rgba(212, 175, 55, 0.2);
+  
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+  
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --shadow-light: 0 10px 40px rgba(44, 24, 16, 0.1);
+  --shadow-heavy: 0 25px 60px rgba(44, 24, 16, 0.2);
+}
+
+/* Global Overrides for Premium Feel */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+/* Premium Button Styles */
+.btn-luxury {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  padding: 15px 35px;
+  border: 2px solid;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-luxury:hover::before {
+  left: 0;
+}
+
+.btn-luxury:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary-luxury {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
+}
+
+.btn-primary-luxury::before {
+  background: var(--color-primary);
+}
+
+.btn-primary-luxury:hover {
+  color: var(--color-text-light);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary-luxury {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-secondary-luxury::before {
+  background: var(--color-primary);
+}
+
+.btn-secondary-luxury:hover {
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-light);
+}
+
+/* Premium Card Styles */
+.card-luxury {
+  background: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.card-luxury:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.card-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+}
+
+/* Premium Section Styling */
+.section-luxury {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-luxury.dark {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-background-dark) 100%);
+  color: var(--color-text-light);
+}
+
+.section-luxury.light {
+  background: var(--color-background-light);
+}
+
+.container-luxury {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Premium Text Styles */
+.text-gradient {
+  background: linear-gradient(45deg, var(--color-secondary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-luxury {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgba(44, 24, 16, 0.8);
+}
+
+/* Premium Image Effects */
+.image-luxury {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.image-luxury img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.image-luxury:hover img {
+  transform: scale(1.05);
+}
+
+.image-luxury::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-luxury:hover::after {
+  opacity: 1;
+}
+
+/* Premium Grid Layouts */
+.grid-luxury {
+  display: grid;
+  gap: 40px;
+}
+
+.grid-luxury.two-col {
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.grid-luxury.three-col {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.grid-luxury.four-col {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Premium Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-left {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Premium Badges */
+.badge-luxury {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+}
+
+.badge-new {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+}
+
+.badge-premium {
+  background: linear-gradient(45deg, var(--color-secondary), #f4d03f);
+  color: var(--color-primary);
+}
+
+.badge-discount {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container-luxury {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-luxury {
+    padding: 60px 0;
+  }
+  
+  .grid-luxury.two-col,
+  .grid-luxury.three-col,
+  .grid-luxury.four-col {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-luxury {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-luxury {
+    padding: 0 15px;
+  }
+  
+  .section-luxury {
+    padding: 40px 0;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .btn-luxury,
+  .image-luxury::after {
+    display: none;
+  }
+  
+  .card-luxury {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #000000;
+    --color-secondary: #ffff00;
+    --color-text-dark: #000000;
+    --color-text-light: #ffffff;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Selection Styling */
+::selection {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+/* ===== MINIMAL PROFESSIONAL NAVIGATION STYLES ===== */
+
+/* Header Wrapper - Clean Background */
+.header-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  transition: var(--transition);
+}
+
+.header-wrapper--border-bottom {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Main Header Layout - Minimal Spacing */
+.header {
+  padding: 15px 0;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+/* Remove header section margins */
+.section-header {
+  margin-bottom: 0 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .header {
+    padding: 20px 0;
+  }
+}
+
+/* Logo - Professional Sizing */
+.header__heading-link {
+  padding: 0;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.header__heading-link:hover {
+  transform: scale(1.02);
+}
+
+.header__heading-logo-wrapper {
+  max-width: 180px;
+  height: auto;
+}
+
+@media screen and (min-width: 990px) {
+  .header__heading-logo-wrapper {
+    max-width: 220px;
+  }
+}
+
+/* Navigation Menu - Minimal Professional Style */
+.header__inline-menu {
+  margin: 0;
+}
+
+.list-menu--inline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__menu-item {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  color: var(--color-text-dark);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+@media screen and (min-width: 990px) {
+  .header__menu-item {
+    font-size: 15px;
+    padding: 16px 28px;
+    letter-spacing: 1px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .header__menu-item {
+    font-size: 16px;
+    padding: 18px 32px;
+    letter-spacing: 1.2px;
+  }
+}
+
+/* Enhanced Typography for Menu Items */
+.header__menu-item span {
+  display: inline-block;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Premium Typography for Dropdowns */
+.header__submenu .header__menu-item {
+  font-family: var(--font-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+}
+
+.header__submenu .header__menu-item span {
+  font-weight: 500;
+}
+
+/* Navigation Menu Hover Effects */
+.header__menu-item:hover {
+  color: #2c1810;
+  background: rgba(44, 24, 16, 0.05);
+}
+
+.header__menu-item:hover span {
+  text-decoration: none;
+}
+
+.header__menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #2c1810;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.header__menu-item:hover::after {
+  width: 80%;
+}
+
+/* Active Menu Item */
+.header__active-menu-item {
+  color: #2c1810;
+  text-decoration: none;
+}
+
+/* Dropdown Menu Styles */
+.header__submenu {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(44, 24, 16, 0.1);
+  padding: 20px 0;
+  margin-top: 10px;
+  min-width: 220px;
+}
+
+.header__submenu .header__menu-item {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+.header__submenu .header__menu-item:hover {
+  background: rgba(44, 24, 16, 0.08);
+  color: #2c1810;
+}
+
+/* Header Icons - Clean Minimal Style with Consistent Sizing */
+.header__icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 0;
+  height: 60px;
+}
+
+.header__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: var(--transition);
+  color: var(--color-text-dark);
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.header__icon:hover {
+  background: rgba(44, 24, 16, 0.08);
+  transform: scale(1.05);
+}
+
+/* Consistent Icon Sizing - Force All Icons to Same Size */
+.header__icon .icon,
+.header__icon svg {
+  width: 22px !important;
+  height: 22px !important;
+  stroke: var(--color-text-dark) !important;
+  transition: var(--transition);
+  fill: none !important;
+  stroke-width: 1.8 !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Special handling for search icon which uses fill instead of stroke */
+.header__icon--search .icon,
+.header__icon--search svg {
+  fill: var(--color-text-dark) !important;
+  stroke: none !important;
+  stroke-width: 0 !important;
+}
+
+.header__icon:hover .icon,
+.header__icon:hover svg {
+  stroke: #2c1810 !important;
+  transform: scale(1.05);
+}
+
+.header__icon--search:hover .icon,
+.header__icon--search:hover svg {
+  fill: #2c1810 !important;
+  stroke: none !important;
+  transform: scale(1.05);
+}
+
+.header__icon .svg-wrapper {
+  width: 22px !important;
+  height: 22px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Ensure search icon wrapper is properly sized */
+.header__icon--search .svg-wrapper {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+/* Hide the close icon in search - only show search icon */
+.header__icon-close,
+.header__search .header__icon-close,
+.header__icon--search .header__icon-close {
+  display: none !important;
+}
+
+/* Ensure only the search icon is visible */
+.header__search summary span {
+  position: relative;
+}
+
+.header__search summary span .svg-wrapper:last-child {
+  display: none !important;
+}
+
+/* Ensure consistent spacing for all icon containers */
+.header__icon span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Account Icon Professional Styling */
+.header__icon--account {
+  position: relative;
+}
+
+/* Search Icon Consistent Styling */
+.header__search .header__icon,
+.header__icon--search {
+  width: 44px !important;
+  height: 44px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__search .header__icon .icon,
+.header__search .header__icon svg,
+.header__icon--search .icon,
+.header__icon--search svg {
+  width: 22px !important;
+  height: 22px !important;
+  fill: var(--color-text-dark) !important;
+  stroke: none !important;
+}
+
+.header__search .header__icon:hover .icon,
+.header__search .header__icon:hover svg,
+.header__icon--search:hover .icon,
+.header__icon--search:hover svg {
+  fill: var(--color-secondary) !important;
+  stroke: none !important;
+}
+
+/* Search modal toggle button styling */
+.header__icon--summary {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Search Icon Consistent Sizing */
+.header__search .header__icon {
+  width: 44px;
+  height: 44px;
+}
+
+/* Simplified Localization Forms - Hide to Reduce Clutter */
+.desktop-localization-wrapper {
+  display: none;
+}
+
+/* Header Icons Responsive Layout */
+@media screen and (max-width: 989px) {
+  .header__icons {
+    gap: 8px;
+    height: 50px;
+  }
+  
+  .header__icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .header__icon .icon,
+  .header__icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .header__icon .svg-wrapper {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Force consistency on all SVG elements in header */
+.header svg,
+.header__icons svg,
+.header__icon svg {
+  max-width: 22px !important;
+  max-height: 22px !important;
+  min-width: 22px !important;
+  min-height: 22px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header svg,
+  .header__icons svg,
+  .header__icon svg {
+    max-width: 20px !important;
+    max-height: 20px !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+  }
+}
+
+/* Cart Icon Special Styling - Consistent with Other Icons */
+.header__icon--cart {
+  position: relative;
+  margin-right: 0;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.header__icon--cart .svg-wrapper {
+  width: 22px !important;
+  height: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header__icon--cart {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .header__icon--cart .svg-wrapper {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+.cart-count-bubble {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  z-index: 1;
+}
+
+/* Override any conflicting base theme icon sizes - Force consistency */
+.header__icon,
+.header__icon--cart,
+.header__icon--search,
+.header__icon--account {
+  height: 44px !important;
+  width: 44px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.header__icon .icon,
+.header__icon svg,
+.header__icon--cart .icon,
+.header__icon--cart svg,
+.header__icon--search .icon,
+.header__icon--search svg,
+.header__icon--account .icon,
+.header__icon--account svg {
+  height: 22px !important;
+  width: 22px !important;
+  max-height: 22px !important;
+  max-width: 22px !important;
+  min-height: 22px !important;
+  min-width: 22px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header__icon,
+  .header__icon--cart,
+  .header__icon--search,
+  .header__icon--account {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  
+  .header__icon .icon,
+  .header__icon svg,
+  .header__icon--cart .icon,
+  .header__icon--cart svg,
+  .header__icon--search .icon,
+  .header__icon--search svg,
+  .header__icon--account .icon,
+  .header__icon--account svg {
+    height: 20px !important;
+    width: 20px !important;
+    max-height: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    min-width: 20px !important;
+  }
+}
+
+/* Mobile Navigation Adjustments */
+@media screen and (max-width: 989px) {
+  .header {
+    padding: 12px 0;
+  }
+  
+  .header__heading-logo-wrapper {
+    max-width: 160px;
+  }
+  
+  .header__icons {
+    gap: 8px;
+    height: 50px;
+  }
+  
+  .header__icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .header__icon .icon,
+  .header__icon svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .cart-count-bubble {
+    min-width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+}
+
+/* Additional Icon Consistency Fixes */
+.header__icon--menu {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+.header__icon--menu .icon,
+.header__icon--menu svg {
+  width: 22px !important;
+  height: 22px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header__icon--menu {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .header__icon--menu .icon,
+  .header__icon--menu svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Force all header icons to have consistent baseline */
+.header__icons * {
+  box-sizing: border-box;
+}
+
+/* Ensure proper vertical alignment */
+.header {
+  align-items: center;
+}
+
+.header__icons {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Universal header icon consistency override */
+.header__icons .header__icon,
+.header__icons a.header__icon,
+.header__icons button.header__icon,
+.header__icons summary.header__icon {
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  transition: var(--transition) !important;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header__icons .header__icon svg,
+.header__icons .header__icon .icon {
+  width: 22px !important;
+  height: 22px !important;
+  transition: var(--transition) !important;
+}
+
+/* Search icon specific fixes */
+.header__icons .header__icon--search svg,
+.header__icons .header__icon--search .icon {
+  fill: var(--color-text-dark) !important;
+  stroke: none !important;
+}
+
+.header__icons .header__icon--search:hover svg,
+.header__icons .header__icon--search:hover .icon {
+  fill: var(--color-secondary) !important;
+}
+
+/* Other icons use stroke */
+.header__icons .header__icon:not(.header__icon--search) svg,
+.header__icons .header__icon:not(.header__icon--search) .icon {
+  stroke: var(--color-text-dark) !important;
+  fill: none !important;
+  stroke-width: 1.8 !important;
+}
+
+.header__icons .header__icon:not(.header__icon--search):hover svg,
+.header__icons .header__icon:not(.header__icon--search):hover .icon {
+  stroke: var(--color-secondary) !important;
+}
+
+/* Mobile search icon consistency */
+@media screen and (max-width: 989px) {
+  .header__icons .header__icon,
+  .header__icons a.header__icon,
+  .header__icons button.header__icon,
+  .header__icons summary.header__icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .header__icons .header__icon svg,
+  .header__icons .header__icon .icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+  
+  .header__icons .header__icon .svg-wrapper {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Force SVG wrapper consistency across all header icons */
+.header__icons .svg-wrapper {
+  width: 22px !important;
+  height: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header__icons .svg-wrapper {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Ensure all SVG elements in header have consistent viewBox handling */
+.header__icons svg {
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* Sticky Header Enhancement */
+.scrolled-past-header .header-wrapper {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 2px 20px rgba(44, 24, 16, 0.08);
+}
+
+/* Remove Default Transitions on Menu Items for Cleaner Look */
+details[open] > .header__menu-item {
+  text-decoration: none;
+}
+
+details[open]:hover > .header__menu-item {
+  text-decoration: none;
+}
+
+/* Focus States for Accessibility */
+.header__menu-item:focus,
+.header__icon:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.header__menu-item:focus-visible,
+.header__icon:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Professional Hover States and Micro-Interactions */
+.header__menu-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.header__menu-item:hover {
+  color: var(--color-secondary);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.header__menu-item:hover span {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.header__menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2c1810, transparent);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+
+.header__menu-item:hover::after {
+  width: 85%;
+}
+
+/* Enhanced Icon Hover States */
+.header__icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.header__icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(44, 24, 16, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.header__icon:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.header__icon:hover {
+  transform: scale(1.05);
+}
+
+.header__icon:active {
+  transform: scale(0.95);
+}
+
+/* Dropdown Menu Enhanced Animations */
+.header__submenu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+details[open] .header__submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header__submenu .header__menu-item {
+  transform: translateX(-10px);
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+details[open] .header__submenu .header__menu-item {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+details[open] .header__submenu .header__menu-item:nth-child(1) { transition-delay: 0.1s; }
+details[open] .header__submenu .header__menu-item:nth-child(2) { transition-delay: 0.15s; }
+details[open] .header__submenu .header__menu-item:nth-child(3) { transition-delay: 0.2s; }
+details[open] .header__submenu .header__menu-item:nth-child(4) { transition-delay: 0.25s; }
+
+/* Cart Count Bubble Animation */
+.cart-count-bubble {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Smooth Header Transitions */
+.header-wrapper {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Professional Active States */
+.header__active-menu-item {
+  color: var(--color-secondary);
+  text-decoration: none;
+  position: relative;
+}
+
+.header__active-menu-item::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #2c1810;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+/* Refined Mobile Touch States */
+@media (hover: none) and (pointer: coarse) {
+  .header__menu-item:hover {
+    background: transparent;
+  }
+  
+  .header__menu-item:active {
+    background: rgba(44, 24, 16, 0.08);
+    transform: scale(0.98);
+  }
+  
+  .header__icon:hover {
+    background: transparent;
+    transform: none;
+  }
+  
+  .header__icon:active {
+    background: rgba(44, 24, 16, 0.1);
+    transform: scale(0.95);
+  }
+}
+
+/* Clean Menu Drawer Styles for Mobile */
+.header__icon--menu {
+  background: transparent;
+  border: none;
+}
+
+.header__icon--menu:hover {
+  background: rgba(44, 24, 16, 0.1);
+}
+
+/* ===== FINAL OVERRIDES FOR CLEAN MINIMAL LOOK ===== */
+
+/* Remove default underlines and decorations */
+.header__menu-item span {
+  text-decoration: none !important;
+}
+
+details[open] > .header__menu-item {
+  text-decoration: none !important;
+}
+
+details[open]:hover > .header__menu-item {
+  text-decoration: none !important;
+  text-decoration-thickness: 0 !important;
+}
+
+/* Clean Caret Icons */
+.header__menu-item .icon-caret {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+}
+
+details[open] > .header__menu-item .icon-caret {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Ensure Clean Background */
+.header-wrapper {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.section-header {
+  position: sticky;
+  z-index: 100;
+}
+
+/* Remove any conflicting margins */
+.header {
+  margin: 0 !important;
+}
+
+/* Clean list styles */
+.list-menu {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* CRITICAL ICON FIXES - Final Override */
+.header__icons > * {
+  height: 44px !important;
+  width: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.header__icons > * svg,
+.header__icons > * .icon {
+  height: 22px !important;
+  width: 22px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Force cart icon to match others exactly */
+.header__icon--cart,
+.header__icon--cart span,
+a.header__icon--cart {
+  height: 44px !important;
+  width: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Aggressively target cart icon SVG and wrapper */
+.header__icon--cart .svg-wrapper,
+.header__icon--cart span.svg-wrapper {
+  height: 22px !important;
+  width: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.header__icon--cart svg,
+.header__icon--cart .icon {
+  height: 22px !important;
+  width: 22px !important;
+  max-height: 22px !important;
+  max-width: 22px !important;
+  min-height: 22px !important;
+  min-width: 22px !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+/* Override any base theme cart icon sizing */
+#cart-icon-bubble {
+  height: 44px !important;
+  width: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#cart-icon-bubble .svg-wrapper {
+  height: 22px !important;
+  width: 22px !important;
+}
+
+#cart-icon-bubble svg {
+  height: 22px !important;
+  width: 22px !important;
+}
+
+/* Search icon - ensure no double icons */
+.header__search summary {
+  height: 44px !important;
+  width: 44px !important;
+}
+
+.header__search summary > span {
+  height: 44px !important;
+  width: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Professional spacing for larger screens */
+@media screen and (min-width: 1400px) {
+  .header {
+    max-width: 1600px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .header__menu-item {
+    padding: 20px 36px;
+    font-size: 16px;
+  }
+  
+  .header__icons {
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .header__icons > * {
+    height: 40px !important;
+    width: 40px !important;
+  }
+
+  .header__icons > * svg,
+  .header__icons > * .icon {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  
+  .header__icon--cart,
+  .header__icon--cart span,
+  a.header__icon--cart {
+    height: 40px !important;
+    width: 40px !important;
+  }
+  
+  .header__icon--cart .svg-wrapper,
+  .header__icon--cart span.svg-wrapper {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  
+  .header__icon--cart svg,
+  .header__icon--cart .icon {
+    height: 20px !important;
+    width: 20px !important;
+    max-height: 20px !important;
+    max-width: 20px !important;
+    min-height: 20px !important;
+    min-width: 20px !important;
+  }
+  
+  #cart-icon-bubble {
+    height: 40px !important;
+    width: 40px !important;
+  }
+
+  #cart-icon-bubble .svg-wrapper {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  #cart-icon-bubble svg {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  
+  .header__search summary {
+    height: 40px !important;
+    width: 40px !important;
+  }
+
+  .header__search summary > span {
+    height: 40px !important;
+    width: 40px !important;
+  }
+}
+
+/* ===== HERO SECTION AND SPACING FIXES ===== */
+
+/* Remove excessive gap between header and hero */
+.shopify-section:first-of-type {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Fix hero banner height - make it more reasonable */
+.hero-section,
+.austo-hero,
+[data-section-type="austo-hero"],
+.section-austo-hero {
+  min-height: 60vh !important;
+  max-height: 70vh !important;
+  height: 60vh !important;
+  padding: 60px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media screen and (min-width: 990px) {
+  .hero-section,
+  .austo-hero,
+  [data-section-type="austo-hero"],
+  .section-austo-hero {
+    min-height: 65vh !important;
+    max-height: 75vh !important;
+    height: 65vh !important;
+    padding: 80px 0 !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .hero-section,
+  .austo-hero,
+  [data-section-type="austo-hero"],
+  .section-austo-hero {
+    min-height: 50vh !important;
+    max-height: 60vh !important;
+    height: 50vh !important;
+    padding: 40px 0 !important;
+  }
+}
+
+/* Remove any unwanted spacing in main content */
+.content-for-layout {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure sections flow together nicely */
+.shopify-section {
+  margin-top: 0 !important;
+}
+
+.shopify-section + .shopify-section {
+  margin-top: 0 !important;
+}
+
+/* Remove any spacing between header and main content */
+#MainContent {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Target potential hero content containers */
+.hero-content,
+.hero-banner,
+.banner {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Additional hero section targeting */
+.austo-hero-section,
+.hero-wrapper,
+.banner-wrapper {
+  min-height: 60vh !important;
+  max-height: 70vh !important;
+  height: 60vh !important;
+  padding: 60px 0 !important;
+}
+
+@media screen and (min-width: 990px) {
+  .austo-hero-section,
+  .hero-wrapper,
+  .banner-wrapper {
+    min-height: 65vh !important;
+    max-height: 75vh !important;
+    height: 65vh !important;
+    padding: 80px 0 !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .austo-hero-section,
+  .hero-wrapper,
+  .banner-wrapper {
+    min-height: 50vh !important;
+    max-height: 60vh !important;
+    height: 50vh !important;
+    padding: 40px 0 !important;
+  }
+}

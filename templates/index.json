@@ -1,0 +1,35 @@
+
+{
+  "sections": {
+    "austo_hero": {
+      "type": "austo-hero",
+      "settings": {}
+    },
+    "austo_categorized_products": {
+      "type": "austo-categorized-products",
+      "settings": {
+        "heading": "OUR PREMIUM COLLECTIONS",
+        "description": "Discover our range of luxury architectural hardware and home decor",
+        "handles_title": "ARCHITECTURAL HANDLES",
+        "handles_description": "Premium door and window handles crafted with precision and Italian-inspired design",
+        "handles_collection": "handles",
+        "handles_link": "/collections/handles",
+        "handles_limit": 8,
+        "plywood_title": "PREMIUM PLYWOOD",
+        "plywood_description": "High-quality plywood for luxury interiors and custom furniture solutions",
+        "plywood_collection": "plywood",
+        "plywood_link": "/collections/plywood",
+        "plywood_limit": 6,
+        "statues_title": "BRASS STATUES",
+        "statues_description": "Exquisite brass statues and decorative pieces for luxury home decoration",
+        "statues_collection": "brass-statues",
+        "statues_link": "/collections/brass-statues",
+        "statues_limit": 8
+      }
+    }
+  },
+  "order": [
+    "austo_hero",
+    "austo_categorized_products"
+  ]
+}
