@@ -1,35 +1,61 @@
 
 {
   "sections": {
-    "austo_hero": {
-      "type": "austo-hero",
-      "settings": {}
-    },
-    "austo_categorized_products": {
-      "type": "austo-categorized-products",
+    "hero_clean": {
+      "type": "hero-clean",
       "settings": {
-        "heading": "OUR PREMIUM COLLECTIONS",
-        "description": "Discover our range of luxury architectural hardware and home decor",
-        "handles_title": "ARCHITECTURAL HANDLES",
-        "handles_description": "Premium door and window handles crafted with precision and Italian-inspired design",
-        "handles_collection": "handles",
-        "handles_link": "/collections/handles",
-        "handles_limit": 8,
-        "plywood_title": "PREMIUM PLYWOOD",
-        "plywood_description": "High-quality plywood for luxury interiors and custom furniture solutions",
-        "plywood_collection": "plywood",
-        "plywood_link": "/collections/plywood",
-        "plywood_limit": 6,
-        "statues_title": "BRASS STATUES",
-        "statues_description": "Exquisite brass statues and decorative pieces for luxury home decoration",
-        "statues_collection": "brass-statues",
-        "statues_link": "/collections/brass-statues",
-        "statues_limit": 8
+        "badge_text": "AUSTO",
+        "title": "Furniture legs and knobs for IKEA and other furniture",
+        "subtitle": "Premium Hardware Solutions",
+        "description": "<p>Knobs, cabinet handles, concealed handles, and main door handles crafted from SS 304, Zinc Alloy, and Aluminum. Complete in-house production with superior Red & Red core.</p>",
+        "show_features": true,
+        "feature_1": "Premium Materials (SS 304, Zinc Alloy)",
+        "feature_2": "Red & Red Core Plywood",
+        "feature_3": "25+ Years Experience",
+        "button_1_text": "EXPLORE HANDLES",
+        "button_1_link": "/collections/handles",
+        "button_2_text": "REQUEST QUOTE",
+        "button_2_link": "/pages/plywood-quote",
+        "show_stats": true,
+        "stat_1_number": "25+",
+        "stat_1_label": "Years Experience",
+        "stat_2_number": "1000+",
+        "stat_2_label": "Products",
+        "stat_3_number": "100%",
+        "stat_3_label": "In-house Production",
+        "reverse_layout": false,
+        "full_width": false,
+        "show_scroll_indicator": true
       }
-    }
+    },
+        "categories_clean": {
+          "type": "categories-clean",
+          "settings": {
+            "show_furniture_legs": true,
+            "legs_description": "<p>Give your cabinets a lift! Explore our range of designer cabinet legs – easy to install, thoughtfully designed, and perfect for adding a personal touch to your home.</p>",
+            "legs_link": "/collections/cabinet-legs",
+            "show_knobs_handles": true,
+            "knobs_title": "Sofa Legs in Various Styles",
+            "knobs_description": "<p>Breathe new life into your old couch with our sofa legs! Customizable and stylish, our couch legs are designed to fit perfectly with IKEA sofas as well as other brands. Our furniture legs always come with the correct fitting hardware, whether you have IKEA or non-IKEA furniture.</p>",
+            "knobs_link": "/collections/sofa-legs",
+            "show_handles_section": true,
+            "handles_description": "<p>Transform your furniture with our premium knobs and handles. Crafted from SS 304, Zinc Alloy, and Aluminum materials. Perfect for cabinets, drawers, and doors with modern and traditional designs.</p>",
+            "handles_link": "/collections/knobs-handles",
+            "show_table_bed_legs": true,
+            "table_bed_description": "<p>Elevate your furniture with our premium table and bed legs. Available in various heights, materials, and finishes. Perfect for dining tables, work desks, and bed frames with superior strength and durability.</p>",
+            "table_bed_link": "/collections/table-legs",
+            "show_premium_plywood": true,
+            "plywood_description": "<p>Discover our premium plywood collection featuring superior Red & Red core quality. Perfect for furniture making, interior projects, and commercial applications. Complete in-house production with unmatched quality standards.</p>",
+            "plywood_link": "/pages/plywood",
+            "show_inspiration_block": true,
+            "inspiration_title": "Discover the Latest IKEA Hacks!",
+            "inspiration_subtitle": "Transform your furniture with creative DIY solutions",
+            "inspiration_link": "/pages/ikea-hacks"
+          }
+        }
   },
   "order": [
-    "austo_hero",
-    "austo_categorized_products"
+    "hero_clean",
+    "categories_clean"
   ]
 }

@@ -1,17 +1,18 @@
 {
-  "name": "Professional Header Group",
+  "name": "Clean Header Group",
   "type": "header",
   "sections": {
-    "professional_header": {
-      "type": "professional-header",
+    "clean_header": {
+      "type": "header-clean",
       "settings": {
         "menu": "main-menu",
-        "sticky_header": true,
-        "show_search": true
+        "enable_search": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false
       }
     }
   },
   "order": [
-    "professional_header"
+    "clean_header"
   ]
 }
