@@ -1,0 +1,615 @@
+{{ 'categories-clean.css' | asset_url | stylesheet_tag }}
+
+<section class="categories-clean">
+  <div class="categories-clean__container">
+    
+    <!-- Cabinet Legs Section -->
+    {%- if section.settings.show_furniture_legs -%}
+      <div class="categories-clean__section categories-clean__section--cabinet">
+        <div class="categories-clean__section-header">
+          <h2 class="categories-clean__section-title">Cabinet Legs</h2>
+    </div>
+        <div class="categories-clean__section-content">
+          
+          <!-- Left: Text Content -->
+          <div class="categories-clean__text-block">
+            <p class="categories-clean__description">{{ section.settings.legs_description | default: 'Give your cabinets a lift! Explore our range of designer cabinet legs – easy to install, thoughtfully designed, and perfect for adding a personal touch to your home.' }}</p>
+            <a href="{{ section.settings.legs_link | default: '/collections/furniture-legs' }}" class="categories-clean__btn">
+              ALL CABINET LEGS
+            </a>
+          </div>
+          
+          <!-- Middle: Product Cards -->
+          <div class="categories-clean__products">
+            <div class="categories-clean__product-card">
+              <div class="categories-clean__product-image">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center" alt="Clas 160 Cabinet Leg" loading="lazy">
+              </div>
+              <div class="categories-clean__product-info">
+                <h4 class="categories-clean__product-name">Clas 160</h4>
+                <p class="categories-clean__product-price">₹1,050</p>
+                <p class="categories-clean__product-colors">6 Colors</p>
+              </div>
+            </div>
+            
+            <div class="categories-clean__product-card">
+              <div class="categories-clean__product-image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center" alt="Carl 170 Cabinet Leg" loading="lazy">
+              </div>
+              <div class="categories-clean__product-info">
+                <h4 class="categories-clean__product-name">Carl 170</h4>
+                <p class="categories-clean__product-price">₹1,450</p>
+                <p class="categories-clean__product-colors">6 Colors</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right: Assortment Image -->
+          <div class="categories-clean__image-block">
+            <div class="categories-clean__assortment-image">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&crop=center" alt="Cabinet Legs Assortment" loading="lazy">
+            </div>
+          </div>
+          
+          </div>
+        </div>
+      {%- endif -%}
+
+        <!-- Sofa Legs Section -->
+      {%- if section.settings.show_knobs_handles -%}
+          <div class="categories-clean__section categories-clean__section--sofa">
+            <div class="categories-clean__section-header">
+              <h2 class="categories-clean__section-title">Sofa Legs in Various Styles</h2>
+            </div>
+            <div class="categories-clean__section-content">
+
+              <!-- Left: Lifestyle Image -->
+              <div class="categories-clean__image-block">
+                <div class="categories-clean__lifestyle-image">
+                  <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&crop=center" alt="Sofa with Furniture Legs" loading="lazy">
+                </div>
+              </div>
+
+              <!-- Middle: Product Cards -->
+              <div class="categories-clean__products">
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">MOST POPULAR</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center" alt="Otto 100 Sofa Leg" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Otto 100</h4>
+                    <p class="categories-clean__product-price">₹1,550</p>
+                    <p class="categories-clean__product-colors">8 Colors</p>
+                  </div>
+                </div>
+
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">MOST POPULAR</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center" alt="Hedvig Little 160 Sofa Leg" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Hedvig Little 160</h4>
+                    <p class="categories-clean__product-price">₹1,290</p>
+                    <p class="categories-clean__product-colors">3 Colors</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Text Content -->
+              <div class="categories-clean__text-block">
+                <p class="categories-clean__description">{{ section.settings.knobs_description | default: 'Breathe new life into your old couch with our sofa legs! Customizable and stylish, our couch legs are designed to fit perfectly with IKEA sofas as well as other brands. Our furniture legs always come with the correct fitting hardware, whether you have IKEA or non-IKEA furniture.' }}</p>
+                <a href="{{ section.settings.knobs_link | default: '/collections/sofa-legs' }}" class="categories-clean__btn">
+                  ALL SOFA LEGS
+                </a>
+              </div>
+
+            </div>
+          </div>
+            {%- endif -%}
+            
+        <!-- Three-Section IKEA Hacks Banner -->
+        {%- if section.settings.show_inspiration_block -%}
+          <div class="categories-clean__ikea-banner">
+            <div class="categories-clean__banner-container">
+              
+              <!-- Left Section - Cabinet Showcase -->
+              <div class="categories-clean__banner-section categories-clean__banner-left">
+                <div class="categories-clean__cabinet-showcase">
+                  <div class="categories-clean__cabinet-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=500&fit=crop&crop=center" alt="Light Cabinet with Wooden Legs" loading="lazy">
+                  </div>
+                  <div class="categories-clean__cabinet-details">
+                    <h3 class="categories-clean__cabinet-title">Light Cabinet</h3>
+                    <p class="categories-clean__cabinet-description">With wooden legs and ribbed texture</p>
+                  </div>
+                </div>
+              </div>
+
+            <!-- Middle Section - Explore Hardware -->
+            <div class="categories-clean__banner-section categories-clean__banner-center">
+              <div class="categories-clean__explore-inspiration">
+                <div class="categories-clean__explore-image">
+                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop&crop=center" alt="Premium Furniture Hardware" loading="lazy">
+                  <div class="categories-clean__explore-overlay">
+                    <h2 class="categories-clean__explore-title">Explore</h2>
+                    <p class="categories-clean__explore-subtitle">Premium Hardware Solutions</p>
+                    <p class="categories-clean__explore-description">Transform your furniture with our complete range of legs, knobs, handles, and premium plywood. 25+ years of expertise in quality hardware.</p>
+                    <a href="{{ section.settings.inspiration_link | default: '/collections/all' }}" class="categories-clean__explore-btn">
+                      EXPLORE ALL PRODUCTS
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <!-- Right Section - Cabinet Showcase -->
+              <div class="categories-clean__banner-section categories-clean__banner-right">
+                <div class="categories-clean__cabinet-showcase">
+                  <div class="categories-clean__cabinet-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=500&fit=crop&crop=center" alt="Blue Cabinet with Modern Legs" loading="lazy">
+                  </div>
+                  <div class="categories-clean__cabinet-details">
+                    <h3 class="categories-clean__cabinet-title">Blue Cabinet</h3>
+                    <p class="categories-clean__cabinet-description">With modern metal legs and handles</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            
+            <!-- Brand Logos Section -->
+            <div class="categories-clean__brand-logos">
+              <div class="categories-clean__logos-scroll">
+                <div class="categories-clean__logos-track">
+                  <a href="https://www.allt-i-hemmet.se/" target="_blank" class="categories-clean__logo">ALLT HEMMET</a>
+                  <a href="https://www.residencemagazine.se/" target="_blank" class="categories-clean__logo">RESIDENCE</a>
+                  <a href="https://www.skonahem.se/" target="_blank" class="categories-clean__logo">SKÖNA HEM</a>
+                  <a href="https://www.trendenser.se/" target="_blank" class="categories-clean__logo">TRENDENSER</a>
+                  <a href="https://www.architecturaldigest.com/" target="_blank" class="categories-clean__logo">ARCHITECTURAL DIGEST</a>
+                  <a href="https://www.apartmenttherapy.com/" target="_blank" class="categories-clean__logo">APARTMENT THERAPY</a>
+                  <!-- Duplicate for seamless loop -->
+                  <a href="https://www.allt-i-hemmet.se/" target="_blank" class="categories-clean__logo">ALLT HEMMET</a>
+                  <a href="https://www.residencemagazine.se/" target="_blank" class="categories-clean__logo">RESIDENCE</a>
+                  <a href="https://www.skonahem.se/" target="_blank" class="categories-clean__logo">SKÖNA HEM</a>
+                  <a href="https://www.trendenser.se/" target="_blank" class="categories-clean__logo">TRENDENSER</a>
+                  <a href="https://www.architecturaldigest.com/" target="_blank" class="categories-clean__logo">ARCHITECTURAL DIGEST</a>
+                  <a href="https://www.apartmenttherapy.com/" target="_blank" class="categories-clean__logo">APARTMENT THERAPY</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+
+        <!-- Knobs & Handles Section -->
+        {%- if section.settings.show_handles_section -%}
+          <div class="categories-clean__section categories-clean__section--handles">
+            <div class="categories-clean__section-header">
+              <h2 class="categories-clean__section-title">Knobs & Handles Collection</h2>
+            </div>
+            <div class="categories-clean__section-content">
+
+              <!-- Left: Text Content -->
+              <div class="categories-clean__text-block">
+                <p class="categories-clean__description">{{ section.settings.handles_description | default: 'Transform your furniture with our premium knobs and handles. Crafted from SS 304, Zinc Alloy, and Aluminum materials. Perfect for cabinets, drawers, and doors with modern and traditional designs.' }}</p>
+                <a href="{{ section.settings.handles_link | default: '/collections/knobs-handles' }}" class="categories-clean__btn">
+                  VIEW ALL HARDWARE
+                </a>
+              </div>
+
+              <!-- Middle: Product Cards -->
+              <div class="categories-clean__products">
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">BEST SELLER</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center" alt="Modern Cabinet Knob" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Modern Knob Set</h4>
+                    <p class="categories-clean__product-price">₹450</p>
+                    <p class="categories-clean__product-colors">SS 304 Material</p>
+                  </div>
+                </div>
+
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">NEW</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center" alt="Concealed Handle" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Concealed Handle</h4>
+                    <p class="categories-clean__product-price">₹650</p>
+                    <p class="categories-clean__product-colors">Zinc Alloy</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Assortment Image -->
+              <div class="categories-clean__image-block">
+                <div class="categories-clean__assortment-image">
+                  <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&crop=center" alt="Knobs and Handles Assortment" loading="lazy">
+                </div>
+              </div>
+
+          </div>
+        </div>
+      {%- endif -%}
+
+        <!-- Table & Bed Legs Section -->
+        {%- if section.settings.show_table_bed_legs -%}
+          <div class="categories-clean__section categories-clean__section--table-bed">
+            <div class="categories-clean__section-header">
+              <h2 class="categories-clean__section-title">Table & Bed Legs</h2>
+            </div>
+            <div class="categories-clean__section-content">
+
+              <!-- Left: Lifestyle Image -->
+              <div class="categories-clean__image-block">
+                <div class="categories-clean__lifestyle-image">
+                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center" alt="Modern Table with Legs" loading="lazy">
+                </div>
+              </div>
+
+              <!-- Middle: Product Cards -->
+              <div class="categories-clean__products">
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">POPULAR</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center" alt="Adjustable Table Leg" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Adjustable Table Leg</h4>
+                    <p class="categories-clean__product-price">₹1,850</p>
+                    <p class="categories-clean__product-colors">Height Adjustable</p>
+                  </div>
+                </div>
+
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">TRENDING</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center" alt="Bed Leg Set" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Bed Leg Set</h4>
+                    <p class="categories-clean__product-price">₹2,200</p>
+                    <p class="categories-clean__product-colors">4-Piece Set</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Text Content -->
+              <div class="categories-clean__text-block">
+                <p class="categories-clean__description">{{ section.settings.table_bed_description | default: 'Elevate your furniture with our premium table and bed legs. Available in various heights, materials, and finishes. Perfect for dining tables, work desks, and bed frames with superior strength and durability.' }}</p>
+                <a href="{{ section.settings.table_bed_link | default: '/collections/table-legs' }}" class="categories-clean__btn">
+                  VIEW TABLE & BED LEGS
+                </a>
+              </div>
+
+            </div>
+          </div>
+            {%- endif -%}
+            
+        <!-- Premium Plywood Section -->
+        {%- if section.settings.show_premium_plywood -%}
+          <div class="categories-clean__section categories-clean__section--plywood">
+            <div class="categories-clean__section-header">
+              <h2 class="categories-clean__section-title">Premium Plywood Solutions</h2>
+            </div>
+            <div class="categories-clean__section-content">
+
+              <!-- Left: Text Content -->
+              <div class="categories-clean__text-block">
+                <p class="categories-clean__description">{{ section.settings.plywood_description | default: 'Discover our premium plywood collection featuring superior Red & Red core quality. Perfect for furniture making, interior projects, and commercial applications. Complete in-house production with unmatched quality standards.' }}</p>
+                <a href="{{ section.settings.plywood_link | default: '/pages/plywood' }}" class="categories-clean__btn">
+                  REQUEST QUOTE
+                </a>
+              </div>
+
+              <!-- Middle: Product Cards -->
+              <div class="categories-clean__products">
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">PREMIUM</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center" alt="Red Core Plywood" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Red Core Plywood</h4>
+                    <p class="categories-clean__product-price">₹3,200</p>
+                    <p class="categories-clean__product-colors">Per Sheet</p>
+                  </div>
+                </div>
+
+                <div class="categories-clean__product-card">
+                  <div class="categories-clean__product-badge">EXPORT QUALITY</div>
+                  <div class="categories-clean__product-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center" alt="Marine Grade Plywood" loading="lazy">
+                  </div>
+                  <div class="categories-clean__product-info">
+                    <h4 class="categories-clean__product-name">Marine Grade</h4>
+                    <p class="categories-clean__product-price">₹4,500</p>
+                    <p class="categories-clean__product-colors">Water Resistant</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Assortment Image -->
+              <div class="categories-clean__image-block">
+                <div class="categories-clean__assortment-image">
+                  <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center" alt="Premium Plywood Collection" loading="lazy">
+                </div>
+              </div>
+
+          </div>
+        </div>
+      {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Clean Product Categories",
+  "class": "section-categories",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Product Categories"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Section Description",
+      "default": "<p>Discover our complete range of furniture hardware and accessories</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_features",
+      "label": "Show product features",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Furniture Legs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_furniture_legs",
+      "label": "Show Furniture Legs category",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "legs_image",
+      "label": "Furniture Legs Image"
+    },
+    {
+      "type": "text",
+      "id": "legs_title",
+      "label": "Title",
+      "default": "FURNITURE LEGS"
+    },
+    {
+      "type": "richtext",
+      "id": "legs_description",
+      "label": "Description",
+      "default": "<p>Transform your furniture with our range of premium legs for sofas, tables, cabinets and more.</p>"
+    },
+    {
+      "type": "text",
+      "id": "legs_badge",
+      "label": "Badge Text"
+    },
+    {
+      "type": "url",
+      "id": "legs_link",
+      "label": "Category Link"
+    },
+    {
+      "type": "collection",
+      "id": "legs_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "header",
+      "content": "Knobs & Handles"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_knobs_handles",
+      "label": "Show Knobs & Handles category",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "knobs_image",
+      "label": "Knobs & Handles Image"
+    },
+    {
+      "type": "text",
+      "id": "knobs_title",
+      "label": "Title",
+      "default": "KNOBS & HANDLES"
+    },
+    {
+      "type": "richtext",
+      "id": "knobs_description",
+      "label": "Description",
+      "default": "<p>Upgrade your cabinets with our stylish collection of knobs and handles in various finishes.</p>"
+    },
+    {
+      "type": "text",
+      "id": "knobs_badge",
+      "label": "Badge Text",
+      "default": "POPULAR"
+    },
+    {
+      "type": "url",
+      "id": "knobs_link",
+      "label": "Category Link"
+    },
+    {
+      "type": "collection",
+      "id": "knobs_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "header",
+      "content": "DIY & Parts"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_diy_parts",
+      "label": "Show DIY & Parts category",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "diy_image",
+      "label": "DIY & Parts Image"
+    },
+    {
+      "type": "text",
+      "id": "diy_title",
+      "label": "Title",
+      "default": "DIY & PARTS"
+    },
+    {
+      "type": "richtext",
+      "id": "diy_description",
+      "label": "Description",
+      "default": "<p>Complete your furniture projects with our accessories, mounting hardware, and custom parts.</p>"
+    },
+    {
+      "type": "text",
+      "id": "diy_badge",
+      "label": "Badge Text"
+    },
+    {
+      "type": "url",
+      "id": "diy_link",
+      "label": "Category Link"
+    },
+    {
+      "type": "collection",
+      "id": "diy_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "header",
+      "content": "Knobs & Handles Collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_handles_section",
+      "label": "Show Knobs & Handles section",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "handles_description",
+      "label": "Description",
+      "default": "<p>Transform your furniture with our premium knobs and handles. Crafted from SS 304, Zinc Alloy, and Aluminum materials. Perfect for cabinets, drawers, and doors with modern and traditional designs.</p>"
+    },
+    {
+      "type": "url",
+      "id": "handles_link",
+      "label": "Category Link"
+    },
+    {
+      "type": "header",
+      "content": "Table & Bed Legs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_table_bed_legs",
+      "label": "Show Table & Bed Legs section",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "table_bed_description",
+      "label": "Description",
+      "default": "<p>Elevate your furniture with our premium table and bed legs. Available in various heights, materials, and finishes. Perfect for dining tables, work desks, and bed frames with superior strength and durability.</p>"
+    },
+    {
+      "type": "url",
+      "id": "table_bed_link",
+      "label": "Category Link"
+    },
+    {
+      "type": "header",
+      "content": "Premium Plywood"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_premium_plywood",
+      "label": "Show Premium Plywood section",
+      "default": true
+    },
+    {
+      "type": "richtext",
+      "id": "plywood_description",
+      "label": "Description",
+      "default": "<p>Discover our premium plywood collection featuring superior Red & Red core quality. Perfect for furniture making, interior projects, and commercial applications. Complete in-house production with unmatched quality standards.</p>"
+    },
+    {
+      "type": "url",
+      "id": "plywood_link",
+      "label": "Category Link"
+    },
+        {
+          "type": "header",
+          "content": "Explore Banner"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_inspiration_block",
+          "label": "Show Explore Banner",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "inspiration_title",
+          "label": "Explore Title",
+          "default": "Explore"
+        },
+        {
+          "type": "text",
+          "id": "inspiration_subtitle",
+          "label": "Explore Subtitle",
+          "default": "Premium Hardware Solutions"
+        },
+        {
+          "type": "url",
+          "id": "inspiration_link",
+          "label": "Explore Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clean Product Categories",
+      "settings": {
+        "title": "Our Product Categories",
+        "description": "<p>Discover our complete range of furniture hardware and accessories</p>",
+        "show_furniture_legs": true,
+        "show_knobs_handles": true,
+        "show_handles_section": true,
+        "show_table_bed_legs": true,
+        "show_premium_plywood": true,
+        "show_inspiration_block": true,
+        "show_diy_parts": true,
+        "show_features": true,
+        "knobs_badge": "POPULAR"
+      }
+    }
+  ]
+}
+{% endschema %}

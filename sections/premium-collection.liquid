@@ -1,0 +1,218 @@
+{{ 'premium-collection.css' | asset_url | stylesheet_tag }}
+
+<section class="premium-collection">
+  <div class="premium-collection__container">
+    
+    <!-- Section Header -->
+    <div class="premium-collection__header">
+      {% if section.settings.badge_text != blank %}
+        <span class="premium-collection__badge">{{ section.settings.badge_text }}</span>
+      {% endif %}
+      
+      <h2 class="premium-collection__title">{{ section.settings.title | default: 'Our Premium Collection' }}</h2>
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="premium-collection__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Collection Grid -->
+    <div class="premium-collection__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'collection_item' %}
+            <div class="collection-card" {{ block.shopify_attributes }}>
+              {% if block.settings.image %}
+                <div class="collection-card__image">
+                  <img 
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    alt="{{ block.settings.title | escape }}"
+                    loading="lazy"
+                    width="400"
+                    height="300"
+                  >
+                </div>
+              {% endif %}
+              
+              <div class="collection-card__content">
+                <h3 class="collection-card__title">{{ block.settings.title }}</h3>
+                
+                {% if block.settings.description != blank %}
+                  <p class="collection-card__description">{{ block.settings.description }}</p>
+                {% endif %}
+                
+                {% if block.settings.button_text != blank %}
+                  <a href="{{ block.settings.button_link | default: '#' }}" class="collection-card__btn">
+                    {{ block.settings.button_text }}
+                    <svg class="collection-card__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    <!-- Bottom CTA Section -->
+    {% if section.settings.bottom_cta_text != blank %}
+      <div class="premium-collection__cta">
+        <h3 class="premium-collection__cta-title">{{ section.settings.bottom_cta_text }}</h3>
+        
+        {% if section.settings.bottom_cta_description != blank %}
+          <p class="premium-collection__cta-description">{{ section.settings.bottom_cta_description }}</p>
+        {% endif %}
+        
+        {% if section.settings.bottom_cta_button_text != blank %}
+          <a href="{{ section.settings.bottom_cta_button_link | default: '#' }}" class="premium-collection__cta-btn">
+            {{ section.settings.bottom_cta_button_text }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Collection",
+  "class": "section-premium-collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "AUSTO"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Our Premium Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Discover our curated selection of premium furniture hardware, designed to elevate your space."
+    },
+    {
+      "type": "header",
+      "content": "Bottom Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "bottom_cta_text",
+      "label": "CTA Title",
+      "default": "Can't find what you're looking for?"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_cta_description",
+      "label": "CTA Description",
+      "default": "Browse our complete catalog or contact our experts for personalized recommendations."
+    },
+    {
+      "type": "text",
+      "id": "bottom_cta_button_text",
+      "label": "CTA Button Text",
+      "default": "VIEW ALL PRODUCTS"
+    },
+    {
+      "type": "url",
+      "id": "bottom_cta_button_link",
+      "label": "CTA Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Cabinet Legs"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Give your cabinets a lift! Explore our range of designer cabinet legs – easy to install, thoughtfully designed, and perfect for adding a personal touch to your home."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "SHOP CABINET LEGS"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Collection",
+      "settings": {
+        "badge_text": "AUSTO",
+        "title": "Our Premium Collection",
+        "subtitle": "Discover our curated selection of premium furniture hardware, designed to elevate your space.",
+        "bottom_cta_text": "Can't find what you're looking for?",
+        "bottom_cta_description": "Browse our complete catalog or contact our experts for personalized recommendations.",
+        "bottom_cta_button_text": "VIEW ALL PRODUCTS"
+      },
+      "blocks": [
+        {
+          "type": "collection_item",
+          "settings": {
+            "title": "Cabinet Legs",
+            "description": "Give your cabinets a lift! Explore our range of designer cabinet legs – easy to install, thoughtfully designed, and perfect for adding a personal touch to your home.",
+            "button_text": "ALL CABINET LEGS"
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "title": "Sofa Legs",
+            "description": "Breathe new life into your old couch with our sofa legs! Customizable and stylish, our couch legs are designed to fit perfectly with IKEA sofas as well as other brands.",
+            "button_text": "ALL SOFA LEGS"
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "title": "Knobs & Handles",
+            "description": "Upgrade your interiors with AUSTO knobs and handles! These stylish, easy-to-install accessories give your furniture a fresh look, making your space uniquely yours.",
+            "button_text": "SEE ALL"
+          }
+        },
+        {
+          "type": "collection_item",
+          "settings": {
+            "title": "Table Legs",
+            "description": "Short, long, wide or slim. Wood or steel. Sober black or playful brass - here you'll find the table legs that suit you and your table top.",
+            "button_text": "ALL TABLE LEGS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,198 @@
+{{ 'hero-clean.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-clean">
+  <div class="hero-clean__container">
+    <div class="hero-clean__content">
+      <div class="hero-clean__text-section">
+        <span class="hero-clean__badge">{{ section.settings.badge_text | default: 'AUSTO' }}</span>
+        
+        <h1 class="hero-clean__title">{{ section.settings.title | default: 'Furniture legs and knobs for IKEA and other furniture' }}</h1>
+        
+        <h2 class="hero-clean__subtitle">{{ section.settings.subtitle | default: 'Premium Hardware Solutions' }}</h2>
+        
+        <div class="hero-clean__description">{{ section.settings.description | default: '<p>Knobs, cabinet handles, concealed handles, and main door handles crafted from SS 304, Zinc Alloy, and Aluminum. Complete in-house production with superior Red & Red core.</p>' }}</div>
+
+        <div class="hero-clean__buttons">
+          <a href="{{ section.settings.button_1_link | default: '/collections/handles' }}" class="hero-clean__btn hero-clean__btn--primary">
+            {{ section.settings.button_1_text | default: 'EXPLORE HANDLES' }}
+          </a>
+          
+          <a href="{{ section.settings.button_2_link | default: '/pages/plywood-quote' }}" class="hero-clean__btn hero-clean__btn--secondary">
+            {{ section.settings.button_2_text | default: 'REQUEST QUOTE' }}
+          </a>
+        </div>
+
+        {%- if section.settings.show_stats -%}
+          <div class="hero-clean__stats">
+            <div class="hero-clean__stat">
+              <span class="hero-clean__stat-number">{{ section.settings.stat_1_number | default: '25+' }}</span>
+              <span class="hero-clean__stat-label">{{ section.settings.stat_1_label | default: 'Years Experience' }}</span>
+            </div>
+            <div class="hero-clean__stat">
+              <span class="hero-clean__stat-number">{{ section.settings.stat_2_number | default: '1000+' }}</span>
+              <span class="hero-clean__stat-label">{{ section.settings.stat_2_label | default: 'Products' }}</span>
+            </div>
+            <div class="hero-clean__stat">
+              <span class="hero-clean__stat-number">{{ section.settings.stat_3_number | default: '100%' }}</span>
+              <span class="hero-clean__stat-label">{{ section.settings.stat_3_label | default: 'In-house Production' }}</span>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="hero-clean__image-section">
+        <div class="hero-clean__image">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&h=600&fit=crop&crop=center" alt="Modern Living Room with Premium Furniture Hardware" loading="eager">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Clean Hero",
+  "class": "section-hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "AUSTO"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Furniture legs and knobs for IKEA and other furniture"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Premium Hardware Solutions"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Upgrade your furniture with our premium collection of legs, knobs, and handles. Designed for IKEA and other furniture brands.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "VIEW CATALOG"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image",
+      "info": "Recommended size: 1920x1080px. Leave empty to use default brass statue."
+    },
+    {
+      "type": "range",
+      "id": "background_opacity",
+      "label": "Background Overlay Opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 40,
+      "info": "Higher values make text more readable"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "header",
+      "content": "Statistics"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show statistics",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Statistic 1 Number",
+      "default": "25+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Statistic 1 Label",
+      "default": "Years Experience"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Statistic 2 Number",
+      "default": "1000+"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Statistic 2 Label",
+      "default": "Products"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Statistic 3 Number",
+      "default": "100%"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Statistic 3 Label",
+      "default": "In-house Production"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clean Hero",
+      "settings": {
+        "badge_text": "AUSTO",
+        "title": "Furniture legs and knobs for IKEA and other furniture",
+        "subtitle": "Premium Hardware Solutions",
+        "description": "<p>Knobs, cabinet handles, concealed handles, and main door handles crafted from SS 304, Zinc Alloy, and Aluminum. Complete in-house production with superior Red & Red core.</p>",
+        "button_1_text": "EXPLORE HANDLES",
+        "button_2_text": "REQUEST QUOTE",
+        "show_stats": true,
+        "stat_1_number": "25+",
+        "stat_1_label": "Years Experience",
+        "stat_2_number": "1000+",
+        "stat_2_label": "Products",
+        "stat_3_number": "100%",
+        "stat_3_label": "In-house Production"
+      }
+    }
+  ]
+}
+{% endschema %}
