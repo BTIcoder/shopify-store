@@ -1,0 +1,321 @@
+/* ============================================================
+   MOBILE MENU FIX - FINAL VERSION WITH LARGE VISIBLE TEXT
+   THIS FILE LOADS LAST AND OVERRIDES ALL OTHER STYLES
+   ============================================================ */
+
+/* Ensure announcement bar and header stay below mobile menu */
+.utility-bar,
+.announcement-bar,
+.shopify-section-header-sticky,
+.section-header,
+.header-clean {
+  z-index: 1000 !important;
+}
+
+.header-clean__mobile-menu {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 99999999 !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+.header-clean__mobile-menu.active {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: all !important;
+}
+
+.header-clean__mobile-menu-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+.header-clean__mobile-menu-content {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 320px !important;
+  height: 100% !important;
+  background: #FFFFFF !important;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2) !important;
+  transform: translateX(100%) !important;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.header-clean__mobile-menu.active .header-clean__mobile-menu-content {
+  transform: translateX(0) !important;
+}
+
+/* ORANGE HEADER WITH WHITE TEXT - ULTRA SPECIFIC */
+.header-clean__mobile-menu .header-clean__mobile-menu-content .header-clean__mobile-menu-header,
+.header-clean__mobile-menu-content .header-clean__mobile-menu-header,
+.header-clean__mobile-menu-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 2rem 2rem !important;
+  background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%) !important;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(255, 140, 0, 0.3) !important;
+  flex-shrink: 0 !important;
+  min-height: 70px !important;
+}
+
+.header-clean__mobile-menu .header-clean__mobile-menu-content .header-clean__mobile-menu-header .header-clean__mobile-brand-name,
+.header-clean__mobile-menu-header .header-clean__mobile-brand-name,
+.header-clean__mobile-brand-name,
+span.header-clean__mobile-brand-name {
+  font-size: 2.2rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.header-clean__mobile-close {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 8px !important;
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.header-clean__mobile-close:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: rotate(90deg) !important;
+}
+
+.header-clean__mobile-close svg {
+  width: 20px !important;
+  height: 20px !important;
+  stroke: #FFFFFF !important;
+}
+
+/* LARGE VISIBLE NAVIGATION - ULTRA SPECIFIC SELECTORS */
+.header-clean__mobile-menu .header-clean__mobile-menu-content .header-clean__mobile-nav,
+.header-clean__mobile-nav {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 0 !important;
+  background: #FFFFFF !important;
+  overflow-y: auto !important;
+}
+
+.header-clean__mobile-menu .header-clean__mobile-menu-content .header-clean__mobile-nav a.header-clean__mobile-nav-item,
+.header-clean__mobile-nav a.header-clean__mobile-nav-item,
+nav.header-clean__mobile-nav a[href].header-clean__mobile-nav-item {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 1.8rem 2rem !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  font-size: 1.8rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  background: #FFFFFF !important;
+  transition: all 0.3s ease !important;
+  min-height: 60px !important;
+  box-sizing: border-box !important;
+}
+
+.header-clean__mobile-menu .header-clean__mobile-menu-content .header-clean__mobile-nav a.header-clean__mobile-nav-item span,
+.header-clean__mobile-nav a.header-clean__mobile-nav-item span,
+nav.header-clean__mobile-nav a[href].header-clean__mobile-nav-item span {
+  color: #1a1a1a !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+}
+
+.header-clean__mobile-nav a.header-clean__mobile-nav-item:hover {
+  background: rgba(255, 140, 0, 0.08) !important;
+  color: #FF8C00 !important;
+  padding-left: 2.5rem !important;
+}
+
+.header-clean__mobile-arrow {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: #1a1a1a !important;
+  stroke-width: 2 !important;
+  flex-shrink: 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.header-clean__mobile-nav a.header-clean__mobile-nav-item:hover .header-clean__mobile-arrow {
+  stroke: #FF8C00 !important;
+  transform: translateX(5px) !important;
+}
+
+/* FOOTER WITH LOGIN AND SOCIAL - ULTRA SPECIFIC */
+.header-clean__mobile-menu .header-clean__mobile-menu-content .header-clean__mobile-footer,
+.header-clean__mobile-menu-content .header-clean__mobile-footer,
+.header-clean__mobile-footer,
+div.header-clean__mobile-footer {
+  margin-top: auto !important;
+  padding: 2rem !important;
+  border-top: 2px solid #e0e0e0 !important;
+  background: rgba(240, 240, 240, 0.5) !important;
+  flex-shrink: 0 !important;
+}
+
+.header-clean__mobile-footer .header-clean__mobile-login,
+.header-clean__mobile-login,
+div.header-clean__mobile-login {
+  margin-bottom: 2rem !important;
+}
+
+.header-clean__mobile-footer .header-clean__mobile-login .header-clean__mobile-login-link,
+.header-clean__mobile-login .header-clean__mobile-login-link,
+.header-clean__mobile-login-link,
+a.header-clean__mobile-login-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  color: #1a1a1a !important;
+  text-decoration: none !important;
+  font-size: 1.8rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  padding: 1rem 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.header-clean__mobile-login-link:hover {
+  color: #FF8C00 !important;
+  padding-left: 0.5rem !important;
+}
+
+.header-clean__mobile-login-link svg {
+  width: 24px !important;
+  height: 24px !important;
+  stroke: currentColor !important;
+  flex-shrink: 0 !important;
+}
+
+.header-clean__mobile-social {
+  display: flex !important;
+  gap: 1.5rem !important;
+  align-items: center !important;
+}
+
+.header-clean__social-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  color: #1a1a1a !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  border-radius: 50% !important;
+  border: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+}
+
+.header-clean__social-link:hover {
+  color: #FF8C00 !important;
+  border-color: #FF8C00 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3) !important;
+}
+
+.header-clean__social-link svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+}
+
+/* Hide old menu elements */
+.header-clean__mobile-nav-toggle,
+.header-clean__mobile-submenu,
+.header-clean__mobile-link,
+.header-clean__mobile-search {
+  display: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .header-clean__mobile-menu-content {
+    width: 85vw !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ============================================================
+   FINAL OVERRIDE - MAXIMUM SPECIFICITY FOR SHOPIFY
+   These rules MUST load last to override any Shopify defaults
+   ============================================================ */
+
+/* Force large text in navigation items */
+html body #mobileMenu .header-clean__mobile-nav a.header-clean__mobile-nav-item,
+html body .header-clean__mobile-menu .header-clean__mobile-nav a {
+  font-size: 1.8rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+  padding: 1.8rem 2rem !important;
+  min-height: 60px !important;
+}
+
+html body #mobileMenu .header-clean__mobile-nav a span,
+html body .header-clean__mobile-menu .header-clean__mobile-nav a span {
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+/* Force large header text */
+html body #mobileMenu .header-clean__mobile-brand-name,
+html body .header-clean__mobile-menu .header-clean__mobile-brand-name {
+  font-size: 2.2rem !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+/* Force large login text */
+html body #mobileMenu .header-clean__mobile-login-link,
+html body .header-clean__mobile-menu .header-clean__mobile-login-link {
+  font-size: 1.8rem !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+}
+
+/* Force proper spacing */
+html body #mobileMenu .header-clean__mobile-menu-header {
+  padding: 2rem 2rem !important;
+  min-height: 70px !important;
+}
+
+html body #mobileMenu .header-clean__mobile-footer {
+  padding: 2rem !important;
+}
