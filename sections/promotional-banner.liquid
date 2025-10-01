@@ -1,0 +1,77 @@
+{{ 'promotional-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="promotional-banner" data-promotional-banner>
+  <div class="promotional-banner__ticker">
+    <div class="promotional-banner__track">
+      <span class="promotional-banner__item">
+        🚚 FREE DELIVERY ON ORDERS ABOVE ₹5,000
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <span class="promotional-banner__item">
+        📞 CUSTOM QUOTES CURATED JUST FOR YOU - CLICK HERE
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <span class="promotional-banner__item">
+        ⚡ PREMIUM QUALITY FURNITURE HARDWARE
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <span class="promotional-banner__item">
+        🏠 SAME DAY DELIVERY AVAILABLE IN BANGLORE
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="promotional-banner__item">
+        🚚 FREE DELIVERY ON ORDERS ABOVE ₹5,000
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <span class="promotional-banner__item">
+        📞 CUSTOM QUOTES CURATED JUST FOR YOU - CLICK HERE
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <span class="promotional-banner__item">
+        ⚡ PREMIUM QUALITY FURNITURE HARDWARE
+      </span>
+      <span class="promotional-banner__separator">•</span>
+      <span class="promotional-banner__item">
+        🏠 SAME DAY DELIVERY AVAILABLE IN BANGLORE
+      </span>
+      <span class="promotional-banner__separator">•</span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promotional Ticker Banner",
+  "class": "promotional-banner-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "message_1",
+      "label": "Message 1",
+      "default": "🚚 FREE DELIVERY ON ORDERS ABOVE ₹5,000"
+    },
+    {
+      "type": "text",
+      "id": "message_2", 
+      "label": "Message 2",
+      "default": "📞 CUSTOM QUOTES CURATED JUST FOR YOU - CLICK HERE"
+    },
+    {
+      "type": "text",
+      "id": "message_3",
+      "label": "Message 3", 
+      "default": "⚡ PREMIUM QUALITY FURNITURE HARDWARE"
+    },
+    {
+      "type": "text",
+      "id": "message_4",
+      "label": "Message 4",
+      "default": "🏠 SAME DAY DELIVERY AVAILABLE IN BANGLORE"
+    }
+  ]
+}
+{% endschema %}
